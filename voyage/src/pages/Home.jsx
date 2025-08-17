@@ -1,10 +1,26 @@
+import BudgetOverview from "../components/BudgetOverview";
+import ExpenseForm from "../components/ExpenseForm";
+import ExpenseList from "../components/ExpenseList";
+
 export default function Home() {
   return (
-    <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold">Welcome to Voyage</h1>
-      <p className="mt-2 text-gray-600">
-        Plan, track, and manage your travel budget with ease.
-      </p>
+    <div className="max-w-7xl mx-auto p-6 space-y-6">
+      {/* Page Title */}
+      <div className="text-center">
+        <h1 className="text-3xl font-bold text-gray-800">Voyage Travel Budget Planner</h1>
+        <p className="text-gray-600 mt-2">
+          Plan, track, and manage your travel expenses with ease.
+        </p>
+      </div>
+
+      {/* Budget Overview */}
+      <BudgetOverview />
+
+      {/* Add Expense Form */}
+      <ExpenseForm />
+
+      {/* Expenses List */}
+      <ExpenseList />
     </div>
   );
 }
