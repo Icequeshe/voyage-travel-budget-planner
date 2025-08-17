@@ -1,12 +1,26 @@
-# React + Vite
+Voyage – Travel Budget Planner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Voyage is a **responsive travel budget planner** built with React, Vite, and TailwindCSS.  
+It helps travelers set trip budgets, track expenses, categorize spending, and visualize their travel costs with charts.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ Features (MVP)
+- 💰 **Set a Total Trip Budget** – Define how much you want to spend.
+- 📝 **Add Expenses** – Log planned or actual expenses (flights, accommodation, food, etc.).
+- 🗂 **Categorize Expenses** – Organize spending into categories.
+- 📊 **Budget Overview** – View total budget, spent amount, and remaining balance.
+- 🧾 **Expense List** – See all logged expenses with delete option.
+- 📱 **Responsive UI** – Works seamlessly on desktop and mobile.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Tech Stack
+- React (Vite)** – Frontend framework
+- **TailwindCSS** – Styling and responsive design
+- **Zustand** – State management (budget + expenses)
+- **React Router** – Routing between pages
+- **Recharts (planned)** – Charts for spending visualization
+- **ExchangeRate API (planned)** – Currency conversion
+- **jsPDF (planned)** – Export budget summary to PDF
+
