@@ -1,19 +1,48 @@
-import useBudgetStore from "../hooks/useBudgetStore";
+import React, { useState } from "react";
+import useBudgetStore from "../store/useBudgetStore";
 import ExpenseItem from "./ExpenseItem";
+import ExpenseForm from "./ExpenseForm";
 
 export default function ExpenseList() {
-  const { expenses, deleteExpense } = useBudgetStore();
+  const expenses = useBudgetStore((state) => state.expenses);
+  const deleteExpense = useBudgetStore((state) => state.deleteExpense);
+
+  const [editingExpense, setEditingExpense] = useState(null);
+
+  const handleEdit = (expense) => {
+    setEditingExpense(expense);
+  };
+
+  const handleSave = () => {
+    setEditingExpense(null); // close form after saving
+  };
 
   return (
-    <div className="bg-white shadow rounded-lg p-6 space-y-3">
-      <h2 className="text-xl font-bold mb-4">Expenses</h2>
-      {expenses.length > 0 ? (
-        expenses.map((exp) => (
-          <ExpenseItem key={exp.id} expense={exp} onDelete={deleteExpense} />
-        ))
-      ) : (
-        <p className="text-gray-500">No expenses added yet.</p>
-      )}
-    </div>
+    <section className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 m-4">
+      <h2 className="text-2xl font-bold text-gray-800 mb-4">Expenses</h2>
+
+      {editingExpense ? (
+        <ExpenseForm
+          currentExpense={editingExpense}
+          onSave={handleSave}
+          onCancel={() => setEditingExpense(null)}
+        />
+      ) : null}
+
+      <div className="space-y-4">
+        {expenses.length > 0 ? (
+          expenses.map((expense) => (
+            <ExpenseItem
+              key={expense.id}
+              expense={expense}
+              onEdit={handleEdit}
+              onDelete={deleteExpense}
+            />
+          ))
+        ) : (
+          <p className="text-gray-500 text-center">No expenses recorded yet.</p>
+        )}
+      </div>
+    </section>
   );
 }
