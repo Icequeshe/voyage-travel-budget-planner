@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useBudgetStore from "../store/useBudgetStore";
 
 export default function ExpenseForm({ currentExpense, onSave, onCancel }) {
@@ -8,14 +8,20 @@ export default function ExpenseForm({ currentExpense, onSave, onCancel }) {
 
   const [expense, setExpense] = useState(
     currentExpense || {
+      id: Date.now(),
       description: "",
-      category: categories[0],
+      category: categories[0] || "General",
       amount: "",
       date: new Date().toISOString().split("T")[0],
       notes: "",
       type: "actual",
     }
   );
+
+  // Update local state if editing a different expense
+  useEffect(() => {
+    if (currentExpense) setExpense(currentExpense);
+  }, [currentExpense]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,20 +30,24 @@ export default function ExpenseForm({ currentExpense, onSave, onCancel }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!expense.description || !expense.amount) return;
+
     if (currentExpense) {
       updateExpense(expense);
       if (onSave) onSave(expense);
     } else {
       addExpense(expense);
+      setExpense({
+        id: Date.now(),
+        description: "",
+        category: categories[0] || "General",
+        amount: "",
+        date: new Date().toISOString().split("T")[0],
+        notes: "",
+        type: "actual",
+      });
     }
-    setExpense({
-      description: "",
-      category: categories[0],
-      amount: "",
-      date: new Date().toISOString().split("T")[0],
-      notes: "",
-      type: "actual",
-    });
   };
 
   return (
@@ -68,7 +78,9 @@ export default function ExpenseForm({ currentExpense, onSave, onCancel }) {
         className="w-full mb-3 p-2 border rounded"
       >
         {categories.map((cat) => (
-          <option key={cat}>{cat}</option>
+          <option key={cat} value={cat}>
+            {cat}
+          </option>
         ))}
       </select>
 

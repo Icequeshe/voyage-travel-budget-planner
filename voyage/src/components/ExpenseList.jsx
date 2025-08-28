@@ -9,26 +9,26 @@ export default function ExpenseList() {
 
   const [editingExpense, setEditingExpense] = useState(null);
 
-  const handleEdit = (expense) => {
-    setEditingExpense(expense);
-  };
+  const handleEdit = (expense) => setEditingExpense(expense);
 
-  const handleSave = () => {
-    setEditingExpense(null); // close form after saving
+  const handleSave = (updatedExpense) => {
+    setEditingExpense(null);
   };
 
   return (
     <section className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 m-4">
       <h2 className="text-2xl font-bold text-gray-800 mb-4">Expenses</h2>
 
-      {editingExpense ? (
+      {/* Edit Form */}
+      {editingExpense && (
         <ExpenseForm
           currentExpense={editingExpense}
           onSave={handleSave}
           onCancel={() => setEditingExpense(null)}
         />
-      ) : null}
+      )}
 
+      {/* Expense List */}
       <div className="space-y-4">
         {expenses.length > 0 ? (
           expenses.map((expense) => (
