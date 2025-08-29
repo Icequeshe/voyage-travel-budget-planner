@@ -30,7 +30,7 @@ It helps you plan, track, and visualize your travel expenses — whether planned
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/your-username/voyage-travel-budget-planner.git
+   git clone https://github.com/Icequeshe/voyage-travel-budget-planner.git
    cd voyage-travel-budget-planner
 Install dependencies:
 
