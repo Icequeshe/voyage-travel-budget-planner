@@ -1,26 +1,76 @@
-Voyage – Travel Budget Planner
+# 🌍 Voyage Travel Budget Planner
 
-Voyage is a **responsive travel budget planner** built with React, Vite, and TailwindCSS.  
-It helps travelers set trip budgets, track expenses, categorize spending, and visualize their travel costs with charts.
-
----
-
- Features (MVP)
-- 💰 **Set a Total Trip Budget** – Define how much you want to spend.
-- 📝 **Add Expenses** – Log planned or actual expenses (flights, accommodation, food, etc.).
-- 🗂 **Categorize Expenses** – Organize spending into categories.
-- 📊 **Budget Overview** – View total budget, spent amount, and remaining balance.
-- 🧾 **Expense List** – See all logged expenses with delete option.
-- 📱 **Responsive UI** – Works seamlessly on desktop and mobile.
+A simple and interactive **travel budget planner** built with **React, Zustand, and Recharts**.  
+It helps you plan, track, and visualize your travel expenses — whether planned or actual — so you never go over budget.
 
 ---
 
-## 🚀 Tech Stack
-- React (Vite)** – Frontend framework
-- **TailwindCSS** – Styling and responsive design
-- **Zustand** – State management (budget + expenses)
-- **React Router** – Routing between pages
-- **Recharts (planned)** – Charts for spending visualization
-- **ExchangeRate API (planned)** – Currency conversion
-- **jsPDF (planned)** – Export budget summary to PDF
+## ✨ Features
 
+- 📊 **Budget Overview** – Set your total budget, see total spent, and remaining balance in real time.  
+- 📝 **Expense Tracking** – Add, edit, and delete expenses with categories and notes.  
+- 🔄 **Planned vs Actual** – Distinguish between *planned* and *actual* expenses for better tracking.  
+- 💱 **Currency Selection** – Choose your preferred currency.  
+- 🍰 **Charts & Reports** – Visualize spending by category using Recharts pie charts.  
+- 🗂️ **Categories** – Predefined categories (Flights, Accommodation, Food, Activities, etc.).  
+- 🖥️ **Responsive UI** – Clean Tailwind CSS design for mobile & desktop.  
+
+---
+
+## 🛠️ Tech Stack
+
+- **React (Vite)** – Frontend framework  
+- **Zustand** – State management  
+- **Tailwind CSS** – Styling  
+- **Recharts** – Data visualization  
+
+---
+
+## 📦 Installation
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/your-username/voyage-travel-budget-planner.git
+   cd voyage-travel-budget-planner
+Install dependencies:
+
+1. npm install
+
+
+2. Start development server:
+
+npm run dev
+
+
+3.Open in your browser:
+
+http://localhost:5173
+
+📂 Project Structure
+src/
+├── components/       # Reusable UI components
+│   ├── BudgetOverview.jsx
+│   ├── ExpenseForm.jsx
+│   ├── ExpenseList.jsx
+│   ├── ExpenseChart.jsx
+│   └── ...
+├── store/            # Zustand store
+│   └── useBudgetStore.js
+├── App.jsx           # Main entry
+├── main.jsx          # React entry point
+└── index.css         # Tailwind styles
+
+🚀 Future Improvements
+
+📈 More detailed spending reports
+
+🔔 Notifications for overspending
+
+🌐 Multi-language support
+
+☁️ Firebase/Cloud sync for user data
+
+👩‍💻 Author
+
+Developed by Charity Nduta ✨
+Happy travels & smart budgeting!
